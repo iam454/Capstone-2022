@@ -15,7 +15,7 @@ html(lang="en")
                 br
                 h3 수험번호를 입력해주십시오.
                 form
-                    input(placehoder="Room name", required, type="text")
+                    input(placehoder="Student Code", required, type="text")
                     button Next &rarr;
             div#call
                 h2
@@ -32,9 +32,14 @@ html(lang="en")
                 div#myStream
                     video#myFace(autoplay, playsinline, width="400", height="400")
                     video#peerFace(autoplay, playsinline, width="400", height="400")
-                select#cameras
-                button#mute Mute
-                button#camera Turn Camera Off
+                    canvas#canvas(width="400", height="320")
+                div#cam
+                    select#cameras
+                    button#mute(style="margin-right: 10px") Mute
+                    button#camera Turn Camera Off
+                div#submit
+                    button#shot(style="margin-right: 10px") Capture 
+                    button#next Next &rarr;
         script(src="/socket.io/socket.io.js") 
         script(src="/public/js/app.js")
         script(src="/public/js/record.js")

@@ -6,8 +6,16 @@ const cameraBtn = document.getElementById("camera");
 const camerasSelect = document.getElementById("cameras");
 const call = document.getElementById("call");
 const header = document.querySelector("header");
+const table = document.querySelector("table");
+const shot = document.getElementById("shot");
+const canvas = document.getElementById("canvas");
+const next = document.getElementById("next");
+const submit = document.getElementById("submit");
+const cam = document.getElementById("cam");
 
 call.hidden = true;
+table.hidden = true;
+canvas.hidden = true;
 
 let myStream;
 let muted = false;
@@ -99,6 +107,18 @@ async function handleCameraChange() {
 muteBtn.addEventListener("click", handleMuteClick);
 cameraBtn.addEventListener("click", handleCameraClick);
 camerasSelect.addEventListener("input", handleCameraChange);
+shot.addEventListener("click", () => {
+  canvas.hidden = false;
+  canvas.getContext("2d").drawImage(myFace, 0, 0, canvas.width, canvas.height);
+  // let imgUrl = canvas.toDataURL("image/jpeg");
+  // console.log(imgUrl);
+});
+next.addEventListener("click", () => {
+  table.hidden = false;
+  canvas.hidden = true;
+  cam.hidden = true;
+  submit.hidden = true;
+});
 
 // Join a room
 
