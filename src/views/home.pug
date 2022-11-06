@@ -1,0 +1,40 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="https://unpkg.com/mvp.css@1.11/mvp.css")
+        title Capstone Design
+    body 
+        header
+            h1 인공지능 기반 온라인 말하기 시험 감독 및 평가 시스템
+        main 
+            div#welcome
+                h2 지금부터 온라인 English 말하기 평가를 시작하겠습니다.
+                br
+                h3 수험번호를 입력해주십시오.
+                form
+                    input(placehoder="Room name", required, type="text")
+                    button Next &rarr;
+            div#call
+                h2
+                table 
+                    tr 
+                        td
+                            img(src="../public/img/ava.jpg")
+                        td
+                            button#q1 1
+                        td
+                            button#q2 2
+                        td
+                            button#q3 3
+                div#myStream
+                    video#myFace(autoplay, playsinline, width="400", height="400")
+                    video#peerFace(autoplay, playsinline, width="400", height="400")
+                select#cameras
+                button#mute Mute
+                button#camera Turn Camera Off
+        script(src="/socket.io/socket.io.js") 
+        script(src="/public/js/app.js")
+        script(src="/public/js/record.js")
